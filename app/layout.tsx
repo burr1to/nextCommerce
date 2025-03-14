@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
-      <body className='relative'>
+    <html lang='en'>
+      <body className='relative' suppressHydrationWarning>
         <Navbar />
         {children}
         <Footer />
