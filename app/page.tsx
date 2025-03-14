@@ -5,13 +5,16 @@ import axios from "axios";
 
 import { useEffect, useState } from "react";
 import { Card } from "@/components";
+import { CardProps } from "@/types";
 
 export default function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<CardProps[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
+        const response = await axios.get<CardProps[]>(
+          "https://fakestoreapi.com/products"
+        );
         setData(response.data);
       } catch (error) {
         console.error(error);
@@ -25,7 +28,11 @@ export default function Home() {
 
   return (
     <div className='relative'>
-      <Card />
+      <div className='flex flex-cols gap-7'>
+        {data.map((item) => (
+          <Card data={item} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -7,3 +7,13 @@ export interface ButtonProps {
   title: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface CardProps {
+  id: number;
+  title: string;
+  category: string;
+  price: number;
+  rating: Object;
+  description: string;
+  image: string;
+}
