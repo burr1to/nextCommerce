@@ -1,8 +1,9 @@
-"use client";
+// "use client";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Card } from "@/components";
 import { CardProps } from "@/types";
+import Loading from "./loading";
 
 const dummy = [
   {
@@ -16,25 +17,32 @@ const dummy = [
   },
 ];
 
-export default function Product() {
-  const [data, setData] = useState<CardProps[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get<CardProps[]>(
-          "https://fakestoreapi.com/products"
-        );
+async function getProducts() {
+  const response = await axios.get<CardProps[]>(
+    "https://fakestoreapi.com/products"
+  );
+  return response.data;
+}
 
-        setData(response.data);
-      } catch (error) {
-        setData(dummy);
-      }
-    };
+export default async function Product() {
+  const data = await getProducts();
+  // const [data, setData] = useState<CardProps[]>([]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       await new Promise((resolve) => setTimeout(resolve, 2000));
+  //       const response = await axios.get<CardProps[]>(
+  //         "https://fakestoreapi.com/products"
+  //       );
 
-    fetchData();
-  }, []);
+  //       setData(response.data);
+  //     } catch (error) {
+  //       setData(dummy);
+  //     }
+  //   };
 
-  console.log(data);
+  //   fetchData();
+  // }, []);
 
   return (
     <div className='relative '>

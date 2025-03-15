@@ -14,9 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className='relative' suppressHydrationWarning>
+      <body className='relative ' suppressHydrationWarning>
         <Navbar />
-        <div>{children}</div>
+        <div className='min-h-[100vh]'>{children}</div>
 
         <Footer />
       </body>
