@@ -12,7 +12,7 @@ const Button = ({
   handleClick,
 }: ButtonProps) => (
   <button
-    disabled={false}
+    disabled={isDisabled}
     type={btnType || "button"}
     className={`custom-btn ${containerStyles}`}
     onClick={() => {

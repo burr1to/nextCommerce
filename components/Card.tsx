@@ -3,29 +3,35 @@ import { CardProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-interface CardProps2 {
+interface CardPropsData {
   data: CardProps;
 }
 
-const Card = ({ data }: CardProps2) => {
+const Card = ({ data }: CardPropsData) => {
   const { id, title, category, price, rating, description, image } = data;
   return (
-    <section className='flex flex-col p-6 justify-center items-center text-black hover:bg-white hover:shadow-lg rounded-3xl border w-[400px] h-auto'>
-      <Link href='/product/[id]' as={`/product/${id}`}>
-        <div className='w-full flex justify-between gap-2'>
-          <h2 className='text-[22px] mx-auto text-center'>{title}</h2>
+    <section className='flex flex-col items-center border border-black p-2'>
+      <div className=''>
+        <h2>{title}</h2>
+      </div>
+      <div>
+        <Image
+          src={image}
+          alt={title}
+          width={200}
+          height={200}
+          className='object-contain'
+        />
+      </div>
+      <div className='relative flex flex-col items-center'>
+        <div className='absolute text-xl border border-blue-400 rounded-lg px-4 py-1 bg-blue-400 text-white'>
+          ${price}
         </div>
-        <div className='relative w-full h-40 my-3 object-contain flex justify-center'>
-          <Image
-            src={image}
-            alt={title}
-            width={100}
-            height={100}
-            className='object-contain'
-          />
-        </div>
-        <p className='capitalize'>{category}</p>
-      </Link>
+        <p>{category}</p>
+        <Link href='/product/[id]' as={`/product/${id}`}>
+          Link
+        </Link>
+      </div>
     </section>
   );
 };

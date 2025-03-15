@@ -1,9 +1,20 @@
 "use client";
 import axios from "axios";
-
 import { useEffect, useState } from "react";
 import { Card } from "@/components";
 import { CardProps } from "@/types";
+
+const dummy = [
+  {
+    id: 1,
+    title: "Googly",
+    category: "Dummy",
+    price: 100,
+    rating: 5,
+    description: "Googly",
+    image: "/logo.png",
+  },
+];
 
 export default function Product() {
   const [data, setData] = useState<CardProps[]>([]);
@@ -13,9 +24,10 @@ export default function Product() {
         const response = await axios.get<CardProps[]>(
           "https://fakestoreapi.com/products"
         );
+
         setData(response.data);
       } catch (error) {
-        console.error(error);
+        setData(dummy);
       }
     };
 
@@ -25,8 +37,9 @@ export default function Product() {
   console.log(data);
 
   return (
-    <div className='relative'>
-      <div className='flex justify-center items-center flex-wrap mx-auto max-w-[1440px] gap-7'>
+    <div className='relative '>
+      <h1 className='flex justify-center'>Product List</h1>
+      <div className='grid grid-cols-3 mt-10 mx-auto max-w-[1440px] gap-x-4 gap-y-10'>
         {data.map((item) => (
           <Card key={item.id} data={item} />
         ))}
