@@ -1,15 +1,23 @@
 import axios from "axios";
 import React from "react";
 import Image from "next/image";
-
+function randomInt(count: number) {
+  return Math.floor(Math.random() * count);
+}
 const SingleProduct = async ({
   params,
 }: {
   params: Promise<{ productID: string }>;
 }) => {
+  const a = randomInt(5);
+
+  if (a === 1) {
+    throw new Error("Error due to randomInt being ONE");
+  }
   const productID = (await params).productID;
   try {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    //test loader.tsx working properly or not
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     const response = await axios.get(
       `https://fakestoreapi.com/products/${productID}`
     );

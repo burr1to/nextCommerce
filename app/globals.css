@@ -32,5 +32,5 @@ h2 {
   font-weight: bold;
 }
 .custom-btn {
-  @apply cursor-pointer rounded-lg border border-gray-400 bg-white sm:px-6 py-1 hover:text-white hover:bg-blue-400 hover:border-none;
+  @apply cursor-pointer rounded-lg border border-gray-400 bg-white sm:px-6 py-1 hover:text-white hover:bg-blue-400 hover:border-blue-400 transition duration-300 delay-150;
 }

@@ -9,15 +9,13 @@ const Button = ({
   btnType,
   containerStyles,
   title,
-  handleClick,
+  onClick,
 }: ButtonProps) => (
   <button
     disabled={isDisabled}
     type={btnType || "button"}
     className={`custom-btn ${containerStyles}`}
-    onClick={() => {
-      handleClick;
-    }}
+    onClick={onClick}
   >
     <span className={`flex-1`}>{title}</span>
   </button>

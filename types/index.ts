@@ -5,7 +5,7 @@ export interface ButtonProps {
   btnType?: "button" | "submit";
   containerStyles?: string;
   title: string;
-  handleClick?: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface CardProps {

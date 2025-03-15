@@ -27,7 +27,7 @@ const Card = ({ data }: CardPropsData) => {
       </div>
 
       <div className='flex justify-center w-full py-5'>
-        <Link href='/product/[id]' as={`/product/${id}`}>
+        <Link href={`/product/${id}`}>
           <Button title='View Product' />
         </Link>
       </div>

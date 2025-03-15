@@ -2,10 +2,10 @@ export const footerLinks = [
   {
     title: "About",
     links: [
-      { title: "How it works", url: "/" },
+      { title: "About Us", url: "/" },
       { title: "Featured", url: "/" },
-      { title: "Partnership", url: "/" },
-      { title: "Bussiness Relation", url: "/" },
+      { title: "Contact Us", url: "/" },
+      { title: "Careers", url: "/" },
     ],
   },
   {
@@ -13,8 +13,7 @@ export const footerLinks = [
     links: [
       { title: "Events", url: "/" },
       { title: "Blog", url: "/" },
-      { title: "Podcast", url: "/" },
-      { title: "Invite a friend", url: "/" },
+      { title: "Location", url: "/" },
     ],
   },
   {
