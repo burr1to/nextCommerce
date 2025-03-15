@@ -39,7 +39,7 @@ export default function Product() {
   return (
     <div className='relative '>
       <h1 className='flex justify-center'>Product List</h1>
-      <div className='grid grid-cols-3 mt-10 mx-auto max-w-[1440px] gap-x-4 gap-y-10'>
+      <div className='grid lg:grid-cols-3 grid-cols-1 mt-10 mx-auto max-w-[1440px] gap-x-4 gap-y-10'>
         {data.map((item) => (
           <Card key={item.id} data={item} />
         ))}
